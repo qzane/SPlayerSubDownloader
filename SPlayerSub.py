@@ -46,7 +46,8 @@ import requests
 
 def fileHash(fname):
     file = open(fname, 'rb')
-    length = file.seek(0,2)
+    file.seek(0,2)
+    length = file.tell()
     hash = []
     for i in [4096, int(length*2/3), int(length/3), length-8192]:
         file.seek(i, 0)
